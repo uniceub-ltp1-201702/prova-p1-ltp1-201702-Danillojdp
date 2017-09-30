@@ -89,9 +89,5 @@ public class Cliente {
 						+ telefone + ", cidade=" + cidade + ", UF=" + UF + ", ligacoes=" + ligacoes + "]";
 			}
 			
-			//Data e hora
-			public String getDataComoString() {
-				return dataDeNascimento.getDayOfMonth() + "/" + dataDeNascimento.getMonthValue() + "/"
-						+ dataDeNascimento.getYear();
-			}
+			
 }
