@@ -71,58 +71,69 @@ public class BDSimulado {
 		this.ligacoes.add(l20);
 	}
 
-	//2A Função que retorne todas as informações de um Cliente fornecido o seu nome
-	public String getInfoCliente(String nome) {
+	// 
+		public String getInfoCliente(String nome) {
 
-		String resultado = "";
-		for (int i = 0; i < this.clientes.size(); i++) {
-			if (this.clientes.get(i).getNome().equals(nome)) {
-				resultado = this.clientes.get(i).toString();
+			String resultado = "";
+			for (int i = 0; i < this.clientes.size(); i++) {
+				if (this.clientes.get(i).getNome().equals(nome)) {
+					resultado = this.clientes.get(i).toString();
+				}
 			}
+			return resultado;
 		}
-		return resultado;
-	}
 
-	
+		
+		public ArrayList<Ligacao> ligacoesPorCliente(String nome) {
 
+			ArrayList<Ligacao> resultado = new ArrayList<Ligacao>();
+			for (int i = 0; i < this.ligacoes.size(); i++) {
+				if (this.ligacoes.get(i).getCliente().getNome().equals(nome)) {
+					resultado.add(this.ligacoes.get(i));
+				}
 
-	
-	//2B Lista de todas as Ligações realizadas por um Cliente determinado
-	public ArrayList<Ligacao> ligacoesPorCliente(String nome) {
-
-		ArrayList<Ligacao> resultado = new ArrayList<Ligacao>();
-		for (int i = 0; i < this.ligacoes.size(); i++) {
-			if (this.ligacoes.get(i).getCliente().getNome().equals(nome)) {
-				resultado.add(this.ligacoes.get(i));
 			}
-
-		}
-		return resultado;
-	}
-
-	//2C Retorna o número de ligações realizadas por todos os clientes de uma determinada UF
-	public int ligacoesPorUF(String UF){
-		ArrayList<Ligacao> resultado = new ArrayList<>();
-		for (int i = 0; i < this.ligacoes.size(); i++) {
-			if (this.ligacoes.get(i).getCliente().getUF().equals(UF)) {
-				resultado.add(this.ligacoes.get(i));
-			}
+			return resultado;
 		}
 		
-		
-	}
-	
-	
-	//2D Todas as Ligações onde a UF de origem seja diferente da UF de destino
-	public ArrayList<Integer> ligacoesUFDiferente() {
 
-		ArrayList<Integer> resultado = new ArrayList<Integer>();
-		for (int i = 0; i < this.ligacoes.size(); i++) {
-			if (this.ligacoes.get(i).getCliente().getUF() != this.ligacoes.get(i).getUFDestino()) {
-				resultado.add(this.ligacoes.get(i).getCodigo());
+
+		public int ligacoesPorUF(String UF) {
+
+			int resultado = 0;
+			for (int i = 0; i < this.ligacoes.size(); i++) {
+				if (this.ligacoes.get(i).getCliente().getUF().equals(UF)) {
+					resultado++;
+				}
 			}
+			return resultado;
 		}
-		return resultado;
-	}
+		
+
+		
+		public ArrayList<Integer> ligacoesUFDiferente() {
+
+			ArrayList<Interage> resultado = new ArrayList<>();
+			for (int i = 0; i < this.ligacoes.size(); i++) {
+				if (this.ligacoes.get(i).getCliente().getUF() != this.ligacoes.get(i).getUFDestino()) {
+					resultado.add(this.ligacoes.get(i).getCodigo());
+				}
+			}
+			return resultado;
+		}
+
+		
+		public ArrayList<Ligacao> contaCliente(String nome) {
+
+			ArrayList<Ligacao> resultado = new ArrayList<Ligacao>();
+			for (int i = 0; i < this.ligacoes.size(); i++) {
+				if (this.ligacoes.get(i).getCliente().getNome().equals(nome)) {
+					resultado.add(this.ligacoes.get(i));
+				}
+			}
+			return resultado;
+		}
+		
 
 }	
+			

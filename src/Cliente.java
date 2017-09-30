@@ -88,4 +88,10 @@ public class Cliente {
 				return "Cliente [nome=" + nome + ", CPF=" + CPF + ", dataDeNascimento=" + dataDeNascimento + ", telefone="
 						+ telefone + ", cidade=" + cidade + ", UF=" + UF + ", ligacoes=" + ligacoes + "]";
 			}
+			
+			//Data e hora
+			public String getDataComoString() {
+				return dataDeNascimento.getDayOfMonth() + "/" + dataDeNascimento.getMonthValue() + "/"
+						+ dataDeNascimento.getYear();
+			}
 }
